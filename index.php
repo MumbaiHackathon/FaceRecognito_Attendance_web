@@ -23,8 +23,7 @@ if(!isset($_SESSION['userid']))
   <tr>
     <th class="entry">Week</th>
 	<?php
-		$date = date_format(date_create("now"),"Y-m-d");
-		$date2 = $date;
+		$date = date_format(date_create("today"),"Y-m-d h:i:s");
 		/*for ($x = 0; $x <= 7; $x++) {
 			?><td class='entry'><?php
 		$LectureQuery="select lecture_id from lectures where date="."\"". $date ."\"";
@@ -45,16 +44,20 @@ if(!isset($_SESSION['userid']))
   </tr>
   <tr>
     <td class="entry">
-	<?php echo $date2 ?></td>
+	<?php echo $date ?></td>
 	<?php
-	for ($x = 0; $x <= 7; $x++) {
+	for ($x = 1; $x <= 8; $x++) {
 			?><td class='entry'><?php
-		$LectureQuery="select status from attendance where att_date="."\"". $date2 ."\"" ;
+		//$LectureQuery="select status from attendance where dte="."\"". $date ."\"" ;
+		$LectureQuery="select status from attendance where dte=1 and lecture_num="."\"". $x ."\"";
 		$result = mysqli_query($Link, $LectureQuery);
 		if(mysqli_num_rows($result) == 1)
 		{
 				$ResultRow = mysqli_fetch_row($result);
 				echo $ResultRow[0];
+		}
+		else{
+			echo"lel";
 		}
 	?></td><?php
 		}
@@ -62,8 +65,8 @@ if(!isset($_SESSION['userid']))
   </tr>
   <tr>
     <td class="entry">
-	<?php $date2 = date_format(date_sub(date_create($date2), date_interval_create_from_date_string("1 day")), "Y-m-d"); 
-	echo $date2?></td>
+	<?php $date = date_format(date_sub(date_create($date), date_interval_create_from_date_string("1 day")), "Y-m-d h:i:s"); 
+	echo $date?></td>
     <td class="entry"></td>
     <td class="entry"></td>
     <td class="entry"></td>
@@ -75,8 +78,8 @@ if(!isset($_SESSION['userid']))
   </tr>
   <tr>
     <td class="entry">
-	<?php $date2 = date_format(date_sub(date_create($date2), date_interval_create_from_date_string("1 day")), "Y-m-d"); 
-	echo $date2?></td>
+	<?php $date = date_format(date_sub(date_create($date), date_interval_create_from_date_string("1 day")), "Y-m-d h:i:s"); 
+	echo $date?></td>
     <td class="entry"></td>
     <td class="entry"></td>
     <td class="entry"></td>
@@ -88,8 +91,8 @@ if(!isset($_SESSION['userid']))
   </tr>
   <tr>
     <td class="entry">
-	<?php $date2 = date_format(date_sub(date_create($date2), date_interval_create_from_date_string("1 day")), "Y-m-d"); 
-	echo $date2?></td>
+	<?php $date = date_format(date_sub(date_create($date), date_interval_create_from_date_string("1 day")), "Y-m-d h:i:s"); 
+	echo $date?></td>
     <td class="entry"></td>
     <td class="entry"></td>
     <td class="entry"></td>
@@ -101,8 +104,8 @@ if(!isset($_SESSION['userid']))
   </tr>
   <tr>
     <td class="entry">
-	<?php $date2 = date_format(date_sub(date_create($date2), date_interval_create_from_date_string("1 day")), "Y-m-d"); 
-	echo $date2?></td>
+	<?php $date = date_format(date_sub(date_create($date), date_interval_create_from_date_string("1 day")), "Y-m-d h:i:s"); 
+	echo $date?></td>
     <td class="entry"></td>
     <td class="entry"></td>
     <td class="entry"></td>
