@@ -14,7 +14,7 @@
 	<body>
 
 <?php
-if(!isset($_SESSION['userid']))
+if(isset($_SESSION['userid']))
 {
 	$Link = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 ?>
@@ -76,6 +76,7 @@ if(!isset($_SESSION['userid']))
 else
 {
 ?>
+			<a href="signup.php">Sign up</a>
 			<a href="login.php">Log In</a>
 <?php
 }
