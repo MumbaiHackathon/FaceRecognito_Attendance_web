@@ -17,10 +17,6 @@
 if(!isset($_SESSION['userid']))
 {
 	$Link = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-	$date = date_format(date_create("now"),"Y-m-d");
-		//$date = date_format(date_sub(date_create("now"), date_interval_create_from_date_string("1 day")), "Y-m-d");
-		$LectureQuery="select lecture_id from lectures where date="."\"". $date ."\"";
-		echo $LectureQuery;
 ?>
 		<style type="text/css">
 .table_attend  {border-collapse:collapse;border-spacing:0;border-color:#ccc;margin:0px auto;}
@@ -34,18 +30,42 @@ if(!isset($_SESSION['userid']))
     <th class="entry">Week</th>
 	<?php
 		$date = date_format(date_create("now"),"Y-m-d");
-		for ($x = 0; $x <= 7; $x++) {
+		$date2 = $date;
+		/*for ($x = 0; $x <= 7; $x++) {
 			?><td class='entry'><?php
 		$LectureQuery="select lecture_id from lectures where date="."\"". $date ."\"";
-		$date = date_format(date_sub(date_create("now"), date_interval_create_from_date_string("1 day")), "Y-m-d");
+		$date = date_format(date_sub(date_create($date), date_interval_create_from_date_string("1 day")), "Y-m-d");
 		echo $date;
-		echo  $LectureQuery;
 		?></td><?php
+		}
+*/		?>
+	<td class="entry">Lecture 1</td>
+    <td class="entry">Lecture 2</td>
+    <td class="entry">Lecture 3</td>
+    <td class="entry">Lecture 4</td>
+    <td class="entry">Lecture 5</td>
+    <td class="entry">Lecture 6</td>
+    <td class="entry">Lecture 7</td>
+    <td class="entry">Lecture 8</td>
+
+  </tr>
+  <tr>
+    <td class="entry">
+	<?php echo $date2 ?></td>
+	<?php
+	for ($x = 0; $x <= 7; $x++) {
+			?><td class='entry'><?php
+		$LectureQuery="select lecture_id from lectures where date="."\"". $date ."\"";
+		$result = mysqli_query($Link, $LectureQuery);
+	
+	?></td><?php
 		}
 		?>
   </tr>
   <tr>
-    <td class="entry">Monday</td>
+    <td class="entry">
+	<?php $date2 = date_format(date_sub(date_create($date2), date_interval_create_from_date_string("1 day")), "Y-m-d"); 
+	echo $date2?></td>
     <td class="entry"></td>
     <td class="entry"></td>
     <td class="entry"></td>
@@ -56,7 +76,9 @@ if(!isset($_SESSION['userid']))
     <td class="entry"></td>
   </tr>
   <tr>
-    <td class="entry">Tuesday</td>
+    <td class="entry">
+	<?php $date2 = date_format(date_sub(date_create($date2), date_interval_create_from_date_string("1 day")), "Y-m-d"); 
+	echo $date2?></td>
     <td class="entry"></td>
     <td class="entry"></td>
     <td class="entry"></td>
@@ -67,7 +89,9 @@ if(!isset($_SESSION['userid']))
     <td class="entry"></td>
   </tr>
   <tr>
-    <td class="entry">Wednesday</td>
+    <td class="entry">
+	<?php $date2 = date_format(date_sub(date_create($date2), date_interval_create_from_date_string("1 day")), "Y-m-d"); 
+	echo $date2?></td>
     <td class="entry"></td>
     <td class="entry"></td>
     <td class="entry"></td>
@@ -78,18 +102,9 @@ if(!isset($_SESSION['userid']))
     <td class="entry"></td>
   </tr>
   <tr>
-    <td class="entry">Thursday</td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-  </tr>
-  <tr>
-    <td class="entry">Friday</td>
+    <td class="entry">
+	<?php $date2 = date_format(date_sub(date_create($date2), date_interval_create_from_date_string("1 day")), "Y-m-d"); 
+	echo $date2?></td>
     <td class="entry"></td>
     <td class="entry"></td>
     <td class="entry"></td>
