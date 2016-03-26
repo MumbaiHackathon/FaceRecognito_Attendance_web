@@ -47,12 +47,17 @@
 		{
 ?>
 <!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="style.css">
+</head>
 	<body>
 <?php
 	if(isset($_GET["message"]))
 	echo $_GET["message"];
 ?>
 		<form name="login" method="post">
+		<h1>Log In</h1>
 			<label>Username or Email</label>
 			<input type="text" name="username">
 			<br>
@@ -60,14 +65,13 @@
 			<input type="password" name="password">
 			<br>
 			<input type="hidden" name="form" value="login">
-			<input type="submit" value="Log in">
+			<button type="submit" >Log in</button>
+			<button><a href="signup.php">Sign Up</a></button>
 			<br>
-			New here <a href="signup.php">Sign Up</a>
-			<br>
-			<a href="forgot.php">Forgot Password?</a>
+			<h4><a href="forgot.php">Forgot Password?</a></h4>
 		</form>
-	<body>
-<html>
+	</body>
+</html>
 <?php
 		}
 	}

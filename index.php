@@ -4,6 +4,10 @@
 ?>
 <!DOCTYPE html>
 <html>
+<html>
+<head>
+	<link rel="stylesheet" href="style.css">
+</head>
 <style type="text/css">
 .table_attend  {border-collapse:collapse;border-spacing:0;border-color:#ccc;margin:0px auto;}
 .table_attend td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
@@ -47,10 +51,10 @@ if(isset($_SESSION['userid']))
 	  ?>
   <tr>
     <td class="entry">
-	<?php echo $date ?></td>
+	<?php echo date_format(date_create($date), "Y-m-d") ?></td>
 	<?php
 	for ($x = 1; $x <= 8; $x++) {
-			?><td class='entry'><?php
+			?><td class='entry'><a href="correct.php?date=<?php echo $date ?>&lectnum=<?php echo $x ?>"><?php
 		//$LectureQuery="select status from attendance where dte="."\"". $date ."\"" ;
 		$LectureQuery="select status from attendance where dte="."\"". $date ."\" and lecture_num="."\"". $x ."\"";
 		$result = mysqli_query($Link, $LectureQuery);
@@ -60,9 +64,9 @@ if(isset($_SESSION['userid']))
 				echo $ResultRow[0];
 		}
 		else{
-			echo"lel";
+			echo"NA";
 		}
-	?></td><?php
+	?></a></td><?php
 		}
 		$date = date_format(date_sub(date_create($date), date_interval_create_from_date_string("1 day")), "Y-m-d h:i:s");
   }
