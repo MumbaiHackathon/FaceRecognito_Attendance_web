@@ -42,6 +42,9 @@ if(!isset($_SESSION['userid']))
     <td class="entry">Lecture 8</td>
 
   </tr>
+  <?php for($y=1 ; $y<=5 ; $y++ )
+  {
+	  ?>
   <tr>
     <td class="entry">
 	<?php echo $date ?></td>
@@ -49,7 +52,7 @@ if(!isset($_SESSION['userid']))
 	for ($x = 1; $x <= 8; $x++) {
 			?><td class='entry'><?php
 		//$LectureQuery="select status from attendance where dte="."\"". $date ."\"" ;
-		$LectureQuery="select status from attendance where dte=1 and lecture_num="."\"". $x ."\"";
+		$LectureQuery="select status from attendance where dte="."\"". $date ."\" and lecture_num="."\"". $x ."\"";
 		$result = mysqli_query($Link, $LectureQuery);
 		if(mysqli_num_rows($result) == 1)
 		{
@@ -61,61 +64,11 @@ if(!isset($_SESSION['userid']))
 		}
 	?></td><?php
 		}
+		$date = date_format(date_sub(date_create($date), date_interval_create_from_date_string("1 day")), "Y-m-d h:i:s");
+  }
 		?>
   </tr>
-  <tr>
-    <td class="entry">
-	<?php $date = date_format(date_sub(date_create($date), date_interval_create_from_date_string("1 day")), "Y-m-d h:i:s"); 
-	echo $date?></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-  </tr>
-  <tr>
-    <td class="entry">
-	<?php $date = date_format(date_sub(date_create($date), date_interval_create_from_date_string("1 day")), "Y-m-d h:i:s"); 
-	echo $date?></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-  </tr>
-  <tr>
-    <td class="entry">
-	<?php $date = date_format(date_sub(date_create($date), date_interval_create_from_date_string("1 day")), "Y-m-d h:i:s"); 
-	echo $date?></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-  </tr>
-  <tr>
-    <td class="entry">
-	<?php $date = date_format(date_sub(date_create($date), date_interval_create_from_date_string("1 day")), "Y-m-d h:i:s"); 
-	echo $date?></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-    <td class="entry"></td>
-  </tr>
-</table></div>
+ </div>
 			<a href="logout.php">Log Out</a>
 <?php
 }
