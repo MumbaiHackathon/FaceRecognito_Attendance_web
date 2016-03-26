@@ -9,11 +9,42 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <style type="text/css">
-.table_attend  {border-collapse:collapse;border-spacing:0;border-color:#ccc;margin:0px auto;}
-.table_attend td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
-.table_attend th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
-.table_attend .entry{vertical-align:top}
-@media screen and (max-width: 767px) {.table_attend {width: auto !important;}.table_attend col {width: auto !important;}.table-wrapper {overflow-x: auto;-webkit-overflow-scrolling: touch;margin: auto 0px;}}</style>
+.table_attend	{
+	border-collapse:collapse;
+	border-spacing:0;
+	border-color:#ccc;
+	margin:0px auto;
+	}
+.table_attend td	{
+	font-family:Arial, sans-serif;
+	font-size:20px;
+	padding:10px 5px;
+	border-style:solid;
+	border-width:1px;
+	overflow:hidden;
+	word-break:normal;
+	border-color:#ccc;
+	color:#333;
+	background-color:#fff;
+	}
+.table_attend th	{
+	font-family:Arial, sans-serif;
+	font-size:20px;
+	font-weight:normal;
+	padding:10px 5px;
+	border-style:solid;
+	border-width:1px;
+	overflow:hidden;
+	word-break:normal;
+	border-color:#ccc;
+	color:#333;
+	background-color:#f0f0f0;
+	}
+.table_attend .entry{
+	vertical-align:top
+	}
+
+</style>
 
 	<body>
 
@@ -61,7 +92,15 @@ if(isset($_SESSION['userid']))
 		if(mysqli_num_rows($result) == 1)
 		{
 				$ResultRow = mysqli_fetch_row($result);
-				echo $ResultRow[0];
+				if($ResultRow[0]=="absent")
+				{
+					?><b><?php
+					echo $ResultRow[0];
+					?></b><?php
+				}
+				else{
+					echo $ResultRow[0];
+				}
 		}
 		else{
 			echo"NA";
@@ -73,15 +112,20 @@ if(isset($_SESSION['userid']))
 		?>
   </tr>
  </div>
-			<a href="logout.php">Log Out</a>
+ <div>
+			<a href="logout.php"><button style="width:100%;" type="button">Log Out</button></a>
+</div>
 <?php
 }
 
 else
 {
 ?>
-			<a href="signup.php">Sign up</a>
-			<a href="login.php">Log In</a>
+<div style="max-width: 480px;margin:auto;display:block;">
+			<h1>Welcome To Student Attendance</h1>
+			<a href="signup.php"><button type="button">Sign up</button></a>
+			<a href="login.php"><button type="button">Log In</button></a>
+</div>
 <?php
 }
 ?>

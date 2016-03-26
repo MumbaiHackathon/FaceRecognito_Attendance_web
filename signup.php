@@ -60,8 +60,14 @@
 			// Registration not possible (Something is wrong) show registration page
 ?>
 <!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="style.css">
+</head>
 	<body>
 		<form name="signup" method="post">
+		<h1>Sign Up</h1>
+		<fieldset>
 			<label>First Name</label>
 			<input type="text" name="firstname">
 			<br>
@@ -78,12 +84,14 @@
 			<input type="password" name="repassword">
 			<br>
 			<input type="hidden" name="form" value="signup">
-			<input type="submit" value="Sign Up">
+			<button type="submit" style=" width:100%;">Sign Up</button>
 			<br>
-			Already Registered <a href="login.php">Log In</a>
+			Already Registered? <a href="login.php"><b>Log In</b></a>
+		</fieldset>
+			
 		</form>
-	<body>
-<html>
+	</body>
+</html>
 <?php
 		}
 	}

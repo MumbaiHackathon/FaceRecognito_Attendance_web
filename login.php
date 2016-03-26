@@ -66,12 +66,12 @@
 			<br>
 			<input type="hidden" name="form" value="login">
 			<button type="submit" >Log in</button>
-			<button><a href="signup.php">Sign Up</a></button>
+			<a href="signup.php"><button type="button">Sign Up</button></a>
 			<br>
 			<h4><a href="forgot.php">Forgot Password?</a></h4>
 		</form>
 	</body>
-</html>
+<html>
 <?php
 		}
 	}
