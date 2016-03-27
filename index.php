@@ -87,7 +87,7 @@ if(isset($_SESSION['userid']))
 	for ($x = 1; $x <= 8; $x++) {
 			?><td class='entry'><a href="correct.php?date=<?php echo $date ?>&lectnum=<?php echo $x ?>"><?php
 		//$LectureQuery="select status from attendance where dte="."\"". $date ."\"" ;
-		$LectureQuery="select status from attendance where dte="."\"". $date ."\" and lecture_num="."\"". $x ."\"";
+		$LectureQuery="select status from attendance where dte="."\"". $date ."\" and lecture_num="."\"". $x ."\" and userid="."\"". $_SESSION['userid'] ."\"";
 		$result = mysqli_query($Link, $LectureQuery);
 		if(mysqli_num_rows($result) == 1)
 		{
@@ -123,7 +123,7 @@ else
 ?>
 <div style="max-width: 480px;margin:auto;display:block;">
 			<h1>Welcome To Student Attendance</h1>
-			<a href="signup.php"><button type="button">Sign up</button></a>
+			<a href="signup.php"><button class="arrowbox" type="button">Sign up</button></a>
 			<a href="login.php"><button type="button">Log In</button></a>
 </div>
 <?php
