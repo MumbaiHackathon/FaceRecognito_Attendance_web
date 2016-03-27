@@ -54,11 +54,11 @@
 	<div style="max-width:640px;margin:auto;display:block;">
 	<img src="img.png" usemap="#planetmap">
 	<map  name="planetmap">
-	<area shape="rect" style="border:1px solid #000;" coords="0,0,82,126" href="correction.php" alt="Sun">
+	<area shape="rect"  coords="0,0,82,126" href="#" alt="Sun">
 	</map> 
-	<a href="signup.php"><button type="button">Previous</button></a>
-	<a href="login.php"><button type="button">Submit</button></a>
-	<a href="signup.php"><button type="button">Next</button></a>
+	<a href="#"><button type="button">Previous</button></a>
+	<a href="#"><button type="button">Submit</button></a>
+	<a href="#"><button type="button">Next</button></a>
 
 	<div>
 <?php
